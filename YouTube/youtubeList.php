@@ -109,7 +109,7 @@ if (isset($_GET['q'])) {
         <iframe width='560' height='315' src='https://www.youtube.com/embed/%s' frameborder='0' allow='accelerometer; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>
       </div>
       </li>",
-          $lastResult['snippet']['title'], $lastResult['snippet']['channelTitle'],$datePublishedAt,$lastResult['statistics']['viewCount'],$lastResult['id'],);
+          $lastResult['snippet']['title'], $lastResult['snippet']['channelTitle'],$datePublishedAt,$lastResult['statistics']['viewCount'],$lastResult['id']);
    }
     $htmlBody .="
     <h3>Результат поиска по запросу: $query</h3>
@@ -140,7 +140,7 @@ if (isset($_GET['q'])) {
 
 
 
-  
+
  <script type="text/javascript">
  $(document).ready(function () {
    $('div.panel-heading').next().hide();
