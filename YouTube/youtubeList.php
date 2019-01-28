@@ -44,33 +44,16 @@ if (isset($_GET['q'])) {
     // matching videos.
     // По сути должен быть только один вызов foreach по listSearch получаем $массив ID новых видео объединяем в строку push(',',$массив) передаем строку в listVideos затем его сортируем
     foreach ($searchResponse['items'] as $searchResult) {
-          //$varPublishedAt=str_replace(["T",".000Z"], " ", $searchResult['snippet']['publishedAt']);
-          //var_dump($searchResult);
+
           $response = $youtube->videos->listVideos("snippet,statistics",
           array('id' => $searchResult['id']['videoId']));
 
           foreach ($response['items'] as $searchId) {
-            //echo $searchId['statistics']['viewCount']. "<br>";
-            //echo $searchId['id'] . "<br>";
-            //$viewCount = $searchId['statistics']['viewCount'];
+
             !(empty($searchId['statistics']['viewCount'])) or $searchId['statistics']['viewCount']='0';
             $videoResults[]=$searchId;
           }
-           //print_r($videoResults);
 
-          //!(empty($viewCount)) or $viewCount='0';
-          /*$videos .= sprintf("<li>
-          <div class='panel-heading'>
-          Название: %s<br>
-          Автор: %s<br>
-          Дата публикации: %s<br>
-          Количество просмотров: %s<br>
-          </div>
-          <div class='videoFromYouTube'>
-            <iframe width='560' height='315' src='https://www.youtube.com/embed/%s' frameborder='0' allow='accelerometer; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>
-          </div>
-          </li>",
-              $searchResult['snippet']['title'], $searchResult['snippet']['channelTitle'],$varPublishedAt,$viewCount,$searchResult['id']['videoId'],$searchResult['id']['videoId']);*/
 
     }
     uasort($videoResults, function ($a, $b)
@@ -82,19 +65,7 @@ if (isset($_GET['q'])) {
     });
 
     foreach ($videoResults as $lastResult) {
-      /*print_r($lastResult['snippet']['title']);
-      echo '<br>';
-      print_r($lastResult['snippet']['channelTitle']);
-      echo '<br>';
-      $datePublishedAt=str_replace(["T",".000Z"], " ", $lastResult['snippet']['publishedAt']);
-      print_r($datePublishedAt);
-      echo '<br>';
-      print_r($lastResult['statistics']['viewCount']);
-      echo '<br>';
-      print_r($lastResult['id']);
-      echo '<br>';
-      echo 'новое видео';
-      echo '<br>';*/
+      
 
       $datePublishedAt=str_replace(["T",".000Z"], " ", $lastResult['snippet']['publishedAt']);
 
