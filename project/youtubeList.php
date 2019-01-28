@@ -100,7 +100,7 @@ if (isset($_GET['q'])) {
 
 
 
-
+  <br>
   <br>
   <!--<?php // var_dump($searchResponse['items']); ?> -->
  <script type="text/javascript">
