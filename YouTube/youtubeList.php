@@ -65,7 +65,7 @@ if (isset($_GET['q'])) {
     });
 
     foreach ($videoResults as $lastResult) {
-      
+
 
       $datePublishedAt=str_replace(["T",".000Z"], " ", $lastResult['snippet']['publishedAt']);
 
@@ -107,9 +107,6 @@ if (isset($_GET['q'])) {
   <body>
 
     <?=$htmlBody?>
-
-
-
 
 
  <script type="text/javascript">
